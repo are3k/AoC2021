@@ -30,7 +30,7 @@ def diagnostics_part_two(diagnostics):
     co2 = reduce_arrays(co2, i, searchValue)
   co2Lst = co2[0].tolist()
   co2StrLst = [int(co2Lst) for co2Lst in co2Lst]
-  epsilon = "".join(map(str, co2StrLst))
+  co2_scrubbing = "".join(map(str, co2StrLst))
 
   oxygen = np.copy(diagnostics)
   for i in range(0,12):
@@ -45,8 +45,8 @@ def diagnostics_part_two(diagnostics):
     oxygen = reduce_arrays(oxygen, i, searchValue)
   oxygenLst = oxygen[0].tolist()
   oxygenStrLst = ([int(oxygenLst) for oxygenLst in oxygenLst])
-  gamma = "".join(map(str, oxygenStrLst))
-  return int(epsilon, 2) * int(gamma, 2)
+  oxygen_rate = "".join(map(str, oxygenStrLst))
+  return int(co2_scrubbing, 2) * int(oxygen_rate, 2)
   
 diagnostics = np.empty((1000, 12))
 linjeteller = 0
